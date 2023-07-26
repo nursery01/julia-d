@@ -6,7 +6,7 @@ s1=raw"""export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/ga
 # s=string(s,s1)
 write(io,s1)
 close(io)
-run(`source /etc/environment`)
+#run(`source /etc/environment`)
 io=open("/etc/fail2ban/jail.conf","r")
 s=readlines(io, keep=true)
 for i=1:length(s)
