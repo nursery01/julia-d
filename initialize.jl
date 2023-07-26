@@ -11,11 +11,11 @@ io=open("/etc/fail2ban/jail.conf","r")
 s=readlines(io, keep=true)
 for i=1:length(s)
     if occursin("bantime",s[i])&&!occursin("#",s[i])
-        s[i]="bantime = 144000m"
+        s[i]="bantime = 144000m\n"
     elseif occursin("findtime",s[i])&&!occursin("#",s[i])
-        s[i]="findtime = 1440m"
+        s[i]="findtime = 1440m\n"
     elseif occursin("maxretry",s[i])&&!occursin("#",s[i])
-        s[i]="maxretry = 2"
+        s[i]="maxretry = 2\n"
         break;
     end
 end
