@@ -10,11 +10,11 @@ close(io)
 io=open("/etc/fail2ban/jail.conf","r")
 s=readlines(io, keep=true)
 for i=1:length(s)
-    if occursin("bantime",s[i])&&!occursin("#",s[i])
+    if !occursin("#",s[i])&&occursin("bantime",s[i])
         s[i]="bantime = 144000m\n"
-    elseif occursin("findtime",s[i])&&!occursin("#",s[i])
+    elseif !occursin("#",s[i])&&occursin("findtime",s[i])
         s[i]="findtime = 1440m\n"
-    elseif occursin("maxretry",s[i])&&!occursin("#",s[i])
+    elseif !occursin("#",s[i])&&occursin("maxretry",s[i])
         s[i]="maxretry = 2\n"
         break;
     end
@@ -31,5 +31,5 @@ close(io)
 run(`systemctl stop fail2ban`)
 run(`systemctl start fail2ban`)
 run(`systemctl enable fail2ban`)
-run(`ufw allow 22/tcp`)
-run(`ufw enable`)
+run(`/usr/sbin/ufw allow 22/tcp`)
+run(`/usr/sbin/ufw enable`)
