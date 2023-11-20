@@ -1,5 +1,5 @@
 run(`apt update`)
-run(`apt install -y gcc g++ cmake ufw aria2 vim fail2ban p7zip p7zip-full p7zip-rar`)
+run(`apt install -y clang gcc g++ cmake ufw aria2 vim fail2ban p7zip p7zip-full p7zip-rar`)
 io=open("/etc/environment","w")
 # s="\n"
 s1=raw"""export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/usr/local/sbin"""
